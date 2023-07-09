@@ -36,7 +36,7 @@ const getRecipesIdHandler = async (req, res) => {
 };
 //Crea una receta
 const createRecipesHandler = async (req, res) => {
-  const { title, image, summary, healthScore, steps } = req.body;
+  const { title, image, summary, healthScore, steps, diets } = req.body;
   try {
     console.log("Este es el body", req.body);
 
@@ -45,7 +45,8 @@ const createRecipesHandler = async (req, res) => {
       image,
       summary,
       healthScore,
-      steps
+      steps,
+      diets
     );
 
     return res.status(200).json(responseCreated);

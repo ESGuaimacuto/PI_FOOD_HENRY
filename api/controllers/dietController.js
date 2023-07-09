@@ -1,7 +1,8 @@
 const axios = require("axios");
 const { Recipe, Diet } = require("../src/db");
-const URL =
-  "https://api.spoonacular.com/recipes/complexSearch?apiKey=26c65454a287478abd1be0c196abdc80&addRecipeInformation=true";
+const { YOUR_API_KEY1, YOUR_API_KEY2 } = process.env
+//const URL =`https://api.spoonacular.com/recipes/complexSearch?apiKey=${YOUR_API_KEY1}&addRecipeInformation=true&number=100`;
+const URL = "https://run.mocky.io/v3/84b3f19c-7642-4552-b69c-c53742badee5"
 
 const getAllDiets = async () => {
   //Solicitud de información a la API y transformación a un arraglo sin elementos repetidos

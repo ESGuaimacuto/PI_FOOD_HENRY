@@ -1,17 +1,37 @@
 const axios = require("axios");
 const { Recipe, Diet } = require("../src/db");
-const URL =
-  "https://api.spoonacular.com/recipes/complexSearch?apiKey=26c65454a287478abd1be0c196abdc80&addRecipeInformation=true";
+const { YOUR_API_KEY1, YOUR_API_KEY2 } = process.env;
+//const URL = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${YOUR_API_KEY2}&addRecipeInformation=true`
+const URL = `https://run.mocky.io/v3/84b3f19c-7642-4552-b69c-c53742badee5`;
 
 //Controlador de creación de recetas
-  const createdRecipes = async (title, image, summary, healthScore, steps) => {
-  const newRecipe = await Recipe.findOrCreate({
-    where: { title, image, summary, healthScore, steps },
-  });
-  return newRecipe;
+const createdRecipes = async (
+  title,
+  image,
+  summary,
+  healthScore,
+  steps,
+  diets
+) => {
+  const searchDB = await Recipe.findOne({ where: { title } });
+  //console.log(searchDB);
+  if (!searchDB) {
+    const newRecipe = await Recipe.create({
+      title,
+      image,
+      summary,
+      healthScore,
+      steps,
+    });
+    newRecipe.addDiet(diets);
+    return newRecipe;
+  }
+  throw Error(
+    "La receta que intenta crear, ya existe en nuestra base de datos"
+  );
 };
 //Controlador de elimación de recetas DB
-const deleteRecipe = async (idRecipes)=>{
+const deleteRecipe = async (idRecipes) => {
   const search = await await Recipe.findByPk(idRecipes, {
     include: [
       {
@@ -22,12 +42,12 @@ const deleteRecipe = async (idRecipes)=>{
         },
       },
     ],
-  }) 
+  });
   console.log(search);
-  if(!search) throw Error("La receta no existe")
-  await Recipe.destroy({where:{id: idRecipes}})
-  return "Receta eliminada exitosamente"
-}
+  if (!search) throw Error("La receta no existe");
+  await Recipe.destroy({ where: { id: idRecipes } });
+  return "Receta eliminada exitosamente";
+};
 //Controlador de busqueda por ID
 const getRecipesById = async (idRecipes) => {
   const idOrigen = isNaN(idRecipes) ? "bd" : "api";
@@ -104,27 +124,34 @@ const getRecipesDB = async () => {
 const getRecipesApi = async () => {
   const solicitudApi = (await axios.get(`${URL}`)).data.results;
   //console.log("Solicitud incial", solicitudApi);
+  
   const allRecipesApi = solicitudApi.map((recipe) => {
     // Se aplica este recorrido al array de los pasos para extraer unicamente la información necesaria a ser renderizada en el front
-    let pasos = recipe.analyzedInstructions.map((step) => step.steps);
-    let pasitos = pasos[0].map(({ number, step }) => {
-      return {
-        number,
-        step,
-      };
-    });
+    // let pasos = recipe.analyzedInstructions.map((step) => step.steps);
+    // let pasitos = pasos[0].map(({ number, step }) => {
+    //   return {
+    //     number,
+    //     step,
+    //   };
+    // });
+    
+    let pasos = recipe.analyzedInstructions[0]?.steps || [];
+    let pasitos = pasos.map(({number, step})=>({
+      number,
+      step
+    }))
+    
     return {
       id: recipe.id,
       title: recipe.title,
       image: recipe.image,
-      summary: recipe.summary,
+      summary: recipe.summary.replace(/<[^>]+>/g, ""),
       healthScore: recipe.healthScore,
       diets: recipe.diets,
       steps: pasitos,
       created: false,
     };
   });
-  //console.log(allRecipesApi);
   return allRecipesApi;
 };
 //Une todas las recetas DB y API para enviar al front
@@ -132,7 +159,7 @@ const getAllRecipes = async (title) => {
   const recipesDB = await getRecipesDB();
   const recipesApi = await getRecipesApi();
   const allRecipes = [...recipesDB, ...recipesApi];
-  console.log(title);
+  //console.log(title);
 
   if (title) {
     let filterRecipes = allRecipes.filter((recipe) =>
@@ -151,5 +178,5 @@ module.exports = {
   createdRecipes,
   getRecipesById,
   getAllRecipes,
-  deleteRecipe
+  deleteRecipe,
 };
