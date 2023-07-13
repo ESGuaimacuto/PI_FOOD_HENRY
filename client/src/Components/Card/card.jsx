@@ -7,7 +7,7 @@ const Card = ({ id, title, image, diets }) => {
       <Link to={`/recipes/${id}`}>
         <img src={image} alt={title} />
       </Link>
-      <p>{diets?.map(diet => <a key={diet}>{diet.toUpperCase()}</a>)}</p>
+      <p>{diets?.map(diet => <a key={diet}>{diet}</a>)}</p>
     </div>
   );
 };

@@ -5,38 +5,64 @@ import { getDetails } from "../../Redux/actions/actions";
 
 const Details = () => {
   const { idRecipes } = useParams();
+  console.log(idRecipes);
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getDetails(idRecipes));
-  }, [dispatch, idRecipes]);
-
   const allDetails = useSelector((state) => state.details);
   console.log(allDetails);
 
-  if(!allDetails) {
-    return(
-      <div> CARGANDO... </div>
-    )
-  }; 
+  useEffect(() => {
+    console.log("Entre al use Efec");
+    dispatch(getDetails(idRecipes));
+  }, [dispatch, idRecipes]);
+
+  if (!allDetails) {
+    return <div> CARGANDO... </div>;
+  }
 
   return (
     <div>
-      <h1>Detalles</h1>
-      <div key={allDetails?.id} id={allDetails?.id} title={allDetails?.title}>
-        <div>
-          <img src={allDetails?.image} alt={allDetails?.title} />
-          <h7>{allDetails?.id}</h7>
-          <h1>{allDetails?.title}</h1>
-          <h3>Tipos de dietas: {allDetails?.diets.join(", ")}</h3>
-          <h5>Puntaje de salud: {allDetails?.healthScore}</h5>
-          <h5>Resumen de la receta: {allDetails?.summary}</h5>
-          <h5>Pasos de preparación: {allDetails?.steps.join(", ")}</h5>
-          <Link to="/recipes">
-            <button>Volver al inicio</button>
-          </Link>
-        </div>
-      </div>
+      <h1>Detalles de la Receta</h1>
+      {allDetails.map(
+        ({ id, title, image, diets, healthScore, summary, steps }) => {
+          return (
+            <div
+              key={id}
+              id={id}
+              title={title}
+              image={image}
+              diets={diets}
+              healthScore={healthScore}
+              summary={summary}
+              steps={steps}
+            >
+              <div>
+                <h6>{id}</h6>
+                <h2> {title} </h2>
+                <img src={image} alt={title} />
+                <h5>Puntaje de salud: {healthScore}</h5>
+                <h5>Tipos de Dieta: {diets}</h5>
+                <p>
+                  Resumen de la preparación: {summary.replace(/<[^>]+>/g, "")}
+                </p>
+                <div>
+                  Pasos para la prepación:
+                  {steps.map(({ number, step }) => {
+                    return (
+                      <p>
+                        {" "}
+                        {number}. {step}{" "}
+                      </p>
+                    );
+                  })}
+                </div>
+                <Link to={"/recipes"}  >
+                <button>Home</button>
+                </Link>
+              </div>
+            </div>
+          );
+        }
+      )}
     </div>
   );
 };

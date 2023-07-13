@@ -43,7 +43,7 @@ function rootReducer(state = initialState, action) {
         ...state,
         details: action.payload,
       };
-
+    
     case SEARCH_BY_TITLE:
       return {
         ...state,
@@ -67,6 +67,7 @@ function rootReducer(state = initialState, action) {
 
     case FILTER_BY_DIET:
       let allRecipes = state.recipes;
+      console.log(action.payload);
       let filterDiets =
         action.payload === "ALL"
           ? allRecipes
@@ -83,28 +84,28 @@ function rootReducer(state = initialState, action) {
       let orden = [...state.recipes];
       orden.sort((a, b) => {
         if (action.payload === "AZ") {
-          return a.name.localeCompare(b.name);
+          return a.title.localeCompare(b.title);
         } else if (action.payload === "ZA") {
-          return b.name.localeCompare(a.name);
+          return b.title.localeCompare(a.title);
         }
         return 0;
       });
 
       return {
         ...state,
-        recipes:orden
+        recipes: orden,
       };
 
     case ORDER_BY_HEALTHSCORE:
-      let ordenarDietas = [...state.recipes];
-      ordenarDietas.sort((a, b) => {
-        const dietaA = Number(a.diet.split("-")[0]);
-        const dietaB = Number(b.diet.split("-")[0]);
+      let ordenarScore = [...state.recipes];
+      ordenarScore.sort((a, b) => {
+        const scoreA = Number(a.healthScore);
+        const scoreB = Number(b.healthScore);
 
         if (action.payload === "HIGH") {
-          return dietaB - dietaA;
+          return scoreB - scoreA;
         } else if (action.payload === "LESS") {
-          return dietaA - dietaB;
+          return scoreA - scoreB;
         } else {
           return 0;
         }
@@ -112,7 +113,7 @@ function rootReducer(state = initialState, action) {
 
       return {
         ...state,
-        recipes: ordenarDietas
+        recipes: ordenarScore,
       };
 
     default:

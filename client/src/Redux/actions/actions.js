@@ -77,21 +77,21 @@ export const getDetails = (idRecipes)=> {
     try {
         return async function (dispatch){
             let resRecipesDetails = await axios.get(`${LocalHost}/recipes/${idRecipes}`)
-
+            console.log("Action", resRecipesDetails);
             return dispatch({
                 type: RECIPES_DETAILS,
-                payload: resRecipesDetails.data
+                payload: [resRecipesDetails.data]
             })
         }
     } catch (error) {
-        console.log(error.message);
+        console.log(error);
     }
 }
 
 export const searchTitle = (title)=>{
   try {
     return async function (dispatch){
-      const busquedaTitle = await axios.get(`${LocalHost}${title}`)
+      const busquedaTitle = await axios.get(`${LocalHost}/recipes?title=${title}`)
       return dispatch({
         type: SEARCH_BY_TITLE,
         payload: busquedaTitle.data
