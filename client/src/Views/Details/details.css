@@ -1,0 +1,52 @@
+.fichaDetalle {
+    border: solid black 5px;
+    border-radius: 50px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: rgb(3, 152, 189);
+    color: whitesmoke;
+    text-align: center;
+    size: 10px;
+    max-height: 100%;
+    max-width: 100%;
+    margin: 10px;
+    box-shadow: 5px 5px 10px black;
+    position: relative;
+    padding: 2px;
+}
+
+.tituloDetalle {
+    margin: 5px;
+    text-size-adjust: 10px;
+}
+
+.imageDetalle {
+    max-width: 500px;
+    max-height: 350px;   
+    margin: 3px;
+}
+
+.pasos { 
+    text-align: left;
+}
+
+.buttonDetalle {
+    background-color: rgb(51, 6, 136);
+    color: white;
+    margin: 5px;
+    min-height: 25px;
+    min-width: 150px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border: none;
+    border-radius: 8px;
+  }
+
+  .buttonDetalle:hover {
+    background:  rgb(17, 187, 230);
+    color: white;
+    box-shadow:  rgb(17, 187, 230);
+    border: solid  rgb(17, 187, 230);
+    }

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
 import { searchTitle } from "../../Redux/actions/actions";
-import style from "../SearchBar/searchBar.module.css";
+import "../SearchBar/searchBar.css";
 
 const SearchBar = () => {
   const dispatch = useDispatch();
@@ -38,11 +38,9 @@ const SearchBar = () => {
   };
 
   return (
-    <div>
-      {loading && (
-        <div className={style.progressbar}>CARGANDO INFORMACIÓN SOLICITADA</div>
-      )}
+    <div className="div1">
       <input
+        className="input"
         id="Busqueda"
         type="text"
         placeholder="Buscar receta por nombre"
@@ -51,13 +49,24 @@ const SearchBar = () => {
         onFocus={handleInputFocus}
         onBlur={handleInputBlur}
       />
-      <button type="submit" onClick={(event) => handleSubmit(event)}>
+      <button
+        className="button"
+        type="submit"
+        onClick={(event) => handleSubmit(event)}
+      >
         Buscar
       </button>
-      <button onClick={resetButon}>Limpiar Busqueda</button>
+      <button className="button" onClick={resetButon}>
+        Limpiar Busqueda
+      </button>
       <Link to="/create">
-        <button>Crear Receta</button>
+        <button className="button">Crear Receta</button>
       </Link>
+      <div>
+        {loading && (
+          <div className="progressbar">CARGANDO INFORMACIÓN SOLICITADA</div>
+        )}
+      </div>
     </div>
   );
 };

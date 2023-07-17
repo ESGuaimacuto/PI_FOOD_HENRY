@@ -48,7 +48,7 @@ const createRecipesHandler = async (req, res) => {
       steps,
       diets
     );
-
+      console.log(responseCreated);
     return res.status(200).json(responseCreated);
   } catch (error) {
     return res.status(400).json({ error: error.message });

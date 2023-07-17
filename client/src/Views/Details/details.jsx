@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getDetails } from "../../Redux/actions/actions";
+import "../Details/details.css"
 
 const Details = () => {
   const { idRecipes } = useParams();
@@ -20,8 +21,7 @@ const Details = () => {
   }
 
   return (
-    <div>
-      <h1>Detalles de la Receta</h1>
+    <div className="fichaDetalle">
       {allDetails.map(
         ({ id, title, image, diets, healthScore, summary, steps }) => {
           return (
@@ -36,19 +36,19 @@ const Details = () => {
               steps={steps}
             >
               <div>
-                <h6>{id}</h6>
-                <h2> {title} </h2>
-                <img src={image} alt={title} />
+                <h6>N° de la Receta: {id}</h6>
+                <h1 className="tituloDetalle"> {title} </h1>
+                <img className="imageDetalle" src={image} alt={title} />
                 <h5>Puntaje de salud: {healthScore}</h5>
-                <h5>Tipos de Dieta: {diets}</h5>
-                <p>
-                  Resumen de la preparación: {summary.replace(/<[^>]+>/g, "")}
+                <h3>Tipos de Dieta: {diets}</h3>
+                <p className="pasos">
+                 <strong>Resumen de la preparación: </strong>   {summary.replace(/<[^>]+>/g, "")}
                 </p>
                 <div>
-                  Pasos para la prepación:
+                  <strong>Pasos para la prepación: </strong>
                   {steps.map(({ number, step }) => {
                     return (
-                      <p>
+                      <p className="pasos">
                         {" "}
                         {number}. {step}{" "}
                       </p>
@@ -56,7 +56,7 @@ const Details = () => {
                   })}
                 </div>
                 <Link to={"/recipes"}  >
-                <button>Home</button>
+                <button className="buttonDetalle">Home</button>
                 </Link>
               </div>
             </div>

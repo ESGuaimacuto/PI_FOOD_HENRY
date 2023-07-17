@@ -1,0 +1,111 @@
+.bodyForm {
+  background-image: url("../../Components/Assets/creado.png");
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
+  text-align: center;
+  background-repeat: repeat;
+  width: 100%;
+  height: 1000px;
+}
+
+.fichaForm {
+  border: solid black 5px;
+  border-radius: 50px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  background-color: rgb(3, 152, 189);
+  color: whitesmoke;
+  text-align: left;
+  size: 10px;
+  height: auto;
+  width: 500px;
+  margin: 10px;
+  box-shadow: 5px 5px 10px black;
+  position: absolute;
+  padding: 2px;
+}
+
+.pagina {
+  align-items: center;
+  justify-content: center;
+}
+
+.labelError {
+  color: red;
+  margin: 15px;
+}
+
+.formulario {
+  margin: 10px;
+}
+
+.inputTitulo {
+  height: 30px;
+  width: 400px;
+}
+
+.inputSummary {
+  height: 200px;
+  width: 400px;
+}
+
+.inputScore {
+  height: 30px;
+  width: 400px;
+}
+
+.seleccionDietas {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 30px;
+  width: 300px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.formularioDieta {
+  margin: 10px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.botonHome {
+  background-color: rgb(51, 6, 136);
+  color: white;
+  margin: 5px;
+  min-height: 25px;
+  min-width: 150px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  border: none;
+  border-radius: 8px;
+}
+
+.botonHome:hover {
+  background: rgb(17, 187, 230);
+  color: white;
+  box-shadow: rgb(17, 187, 230);
+  border: solid rgb(17, 187, 230);
+}
+
+.divBoton {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.botonSubmit {
+  color: black;
+  margin: 5px;
+  min-height: 25px;
+  min-width: 150px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  border: none;
+  border-radius: 8px;
+}

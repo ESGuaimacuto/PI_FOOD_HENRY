@@ -35,7 +35,7 @@ module.exports = (sequelize) => {
                 validate: {
                     min: 0,
                     max: 100,
-                    isNumeric: true //Asociar que unicamente sean valores numericos
+                    
                 },              
             },
             steps:{

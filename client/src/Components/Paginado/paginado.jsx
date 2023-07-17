@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import "../Paginado/paginado.css"
 
 export default function Paginado({
   numRecipes,
@@ -19,9 +20,9 @@ export default function Paginado({
 
   return (
     <nav>
-      <div>
+      <div className="div2">
         <div onClick={pagePrev}>
-          <button> «-- </button>
+          <button className="flechaL"> «-- Prev </button>
         </div>
         {pagNumber &&
           pagNumber.map((number) => (
@@ -31,7 +32,7 @@ export default function Paginado({
             </li>
           ))}
         <div onClick={pageNext}>
-          <button> --» </button>
+          <button className="flechaR"> Next --» </button>
         </div>
       </div>
     </nav>

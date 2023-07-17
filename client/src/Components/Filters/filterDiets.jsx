@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { filterDiets, getRecipes } from "../../Redux/actions/actions";
 import { useEffect, useState } from "react";
+import "../NavBar/navBar.css"
 
 const FilterDiet = () => {
   const dispatch = useDispatch();
@@ -20,7 +21,9 @@ const FilterDiet = () => {
 
   return (
     <div>
-      <select onChange={(event) => handlerDiets(event)} name="filtroDietas" value={selection}>
+      <select onChange={(event) => handlerDiets(event)} name="filtroDietas" value={selection}
+      className="opciones"
+      >
         <option value="ALL"> Todas las recetas </option>
         {allDiets.map((diets) => (
           <option value={diets.name} key={diets.id}>

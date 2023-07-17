@@ -3,12 +3,13 @@ import Card from "../Card/card";
 import Paginado from "../Paginado/paginado";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 import { useState, useEffect } from "react";
+import "../Cards/cards.css";
 
 const Cards = () => {
   const dispacth = useDispatch();
   const allRecipes = useSelector((state) => state?.recipes);
   console.log(allRecipes);
-  
+
   if (!allRecipes) {
     return <div> CARGANDO... </div>;
   }
@@ -26,8 +27,8 @@ const Cards = () => {
     setCurrentPage(pagNumber);
   };
 
-  //const numRecipes = allRecipes?.length;
-  
+  const numRecipes = allRecipes?.length;
+
   function pagePrev() {
     if (currentPage > 1) setCurrentPage(currentPage - 1);
   }
@@ -43,27 +44,38 @@ const Cards = () => {
 
   return (
     <div>
-      <Paginado
-        // recipesPerPage={recipesPerPage}
-        // numRecipes = {numRecipes}
-        paginado={paginado}
-        pageNext={pageNext}
-        pagePrev={pagePrev}
-      />
-      {currentRecipes?.map(
-        ({ id, title, summary, image, healthScore, steps, diets }) => (
-          <Card
-            key={id}
-            id={id}
-            title={title}
-            summary={summary}
-            image={image}
-            healthScore={healthScore}
-            steps={steps}
-            diets={diets}
-          />
-        )
-      )}
+      <div>
+        <Paginado
+          //recipesPerPage={recipesPerPage}
+          //numRecipes = {numRecipes}
+          paginado={paginado}
+          pageNext={pageNext}
+          pagePrev={pagePrev}
+        />
+        <div className="contenedor">
+          {currentRecipes?.map(
+            ({ id, title, summary, image, healthScore, steps, diets }) => (
+              <Card
+                key={id}
+                id={id}
+                title={title}
+                summary={summary}
+                image={image}
+                healthScore={healthScore}
+                steps={steps}
+                diets={diets}
+              />
+            )
+          )}
+        </div>
+        <Paginado
+          //recipesPerPage={recipesPerPage}
+          //numRecipes = {numRecipes}
+          paginado={paginado}
+          pageNext={pageNext}
+          pagePrev={pagePrev}
+        />
+      </div>
     </div>
   );
 };

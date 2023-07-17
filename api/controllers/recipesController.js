@@ -13,8 +13,10 @@ const createdRecipes = async (
   steps,
   diets
 ) => {
+  console.log("Estoy en el controller", title);
   const searchDB = await Recipe.findOne({ where: { title } });
-  //console.log(searchDB);
+  console.log(searchDB);
+  console.log(!searchDB);
   if (!searchDB) {
     const newRecipe = await Recipe.create({
       title,
@@ -23,6 +25,8 @@ const createdRecipes = async (
       healthScore,
       steps,
     });
+    console.log(newRecipe);
+  
     newRecipe.addDiet(diets);
     return newRecipe;
   }

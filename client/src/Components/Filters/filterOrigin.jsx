@@ -1,5 +1,6 @@
 import { useDispatch } from "react-redux";
 import { filterOrigin } from "../../Redux/actions/actions";
+import "../NavBar/navBar.css"
 
 const FilterOrigin = () => {
   const dispatch = useDispatch();
@@ -13,7 +14,7 @@ const FilterOrigin = () => {
       <div>
         <select
         onChange={(event)=>handlerOrigin(event)}
-        name="filtroOrigen"
+        name="filtroOrigen" className="opciones"
         >
         <option value="ALL"> Origen de Datos </option>
         <option value="true"> Creados </option>

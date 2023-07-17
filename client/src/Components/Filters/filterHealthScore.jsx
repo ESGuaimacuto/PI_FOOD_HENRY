@@ -1,5 +1,6 @@
 import { useDispatch } from "react-redux";
 import { orderScore } from "../../Redux/actions/actions";
+import "../NavBar/navBar.css"
 
 const FilterHealth = () => {
   const dispatch = useDispatch();
@@ -13,7 +14,7 @@ const FilterHealth = () => {
       <div>
         <select
         onChange={(event)=>handlerScore(event)}
-        name="filtroHealth"
+        name="filtroHealth" className="opciones"
         >
         <option value="neutro"> Filtro de Salud </option>
         <option value="HIGH"> Mayor a Menor </option>

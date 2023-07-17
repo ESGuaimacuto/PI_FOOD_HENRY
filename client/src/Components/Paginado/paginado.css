@@ -1,0 +1,48 @@
+.div2 {
+    display: flex;
+    min-height: 5vh;
+    justify-content: center;
+    align-items: center;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 5px;   
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.flechaL {
+    background-color: rgb(51, 6, 136);
+    color: white;
+    margin: 5px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    width: 80px;
+    height: 25px;
+    box-shadow: 5px 5px 10px black;
+    border-radius: 8px;
+    border: none;
+}
+
+.flechaL:hover {
+    background:  rgb(17, 187, 230);
+    color: black;
+    box-shadow:  rgb(17, 187, 230);
+    border: solid  rgb(17, 187, 230);
+}
+
+.flechaR {
+    background-color: rgb(51, 6, 136);
+    color: white;
+    margin: 5px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    width: 80px;
+    height: 25px;
+    box-shadow: 5px 5px 10px black;
+    border: none;
+    border-radius: 8px;
+}
+
+.flechaR:hover {
+    background:  rgb(17, 187, 230);
+    color: black;
+    box-shadow:  rgb(17, 187, 230);
+    border: solid  rgb(17, 187, 230);
+}

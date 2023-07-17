@@ -1,0 +1,35 @@
+.ficha {
+    border: solid black 5px;
+    border-radius: 50px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: rgba(17, 187, 230, 0.425);
+    color: whitesmoke;
+    text-align: center;
+    size: 1px;
+    max-height: 450px;
+    max-width: 250px;
+    margin: 10px;
+    box-shadow: 5px 5px 10px black;
+    backdrop-filter: blur(8px);
+    position: relative;
+    padding: 20px;
+}
+
+.ficha:hover{
+    box-shadow:5px 5px 10px rgb(17, 187, 230);
+}
+
+.titulo {
+    margin: 5px;
+    text-size-adjust: 1px;
+}
+
+.image {
+    max-width: 350px;
+    max-height: 200px;   
+    margin: 3px;
+}

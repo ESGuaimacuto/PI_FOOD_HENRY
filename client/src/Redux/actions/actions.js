@@ -22,6 +22,7 @@ export const createdRecipe = ({
   steps,
   diets,
 }) => {
+  console.log(title, image, summary, healthScore, steps, diets);
   try {
     return async function (dispatch) {
       let responseDB = await axios.post(`${LocalHost}/recipes`, {
@@ -35,7 +36,7 @@ export const createdRecipe = ({
       alert("Recceta creada con éxito");
       return dispatch({
         type: CREATED_RECIPE,
-        payload: responseDB.data,
+        payload: responseDB,
       });
     };
   } catch (error) {

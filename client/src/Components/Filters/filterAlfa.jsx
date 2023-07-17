@@ -1,5 +1,6 @@
 import { useDispatch } from "react-redux";
 import { orderAlfavetico } from "../../Redux/actions/actions";
+import "../NavBar/navBar.css"
 
 const FilterAlfa = () => {
   const dispatch = useDispatch();
@@ -12,6 +13,7 @@ const FilterAlfa = () => {
   return (
       <div>
         <select
+        className="opciones"
         onChange={(event)=>handlerAlfavetico(event)}
         name="filtroAlfavetico"
         >

@@ -1,0 +1,6 @@
+.back {
+    background-image: url("../../Components/Assets/creado.png");
+    background-repeat: repeat;
+    justify-content: center;
+    align-items: center;
+}
