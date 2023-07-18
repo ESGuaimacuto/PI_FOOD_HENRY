@@ -122,12 +122,12 @@ const Created = () => {
               onChange={handleChange}
               placeholder="Agregar título"
             />
-          </div>
           <label className="labelError">{errors.title}</label>
-          <div className="formulario">
+          </div>
             <label>
               <strong>Image: </strong>
             </label>
+          <div className="formulario">
             <input
               className="inputTitulo"
               type="Text"
@@ -163,12 +163,12 @@ const Created = () => {
               max={100}
               min={0}
             />
-          </div>
           <label className="labelError">{errors.healthScore}</label>
-          <div className="formulario">
+          </div>
             <label>
               <strong>Steps: </strong>
             </label>
+          <div className="formulario">
             <input
               className="inputSummary"
               type="Text"

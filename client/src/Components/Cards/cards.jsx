@@ -54,7 +54,8 @@ const Cards = () => {
         />
         <div className="contenedor">
           {currentRecipes?.map(
-            ({ id, title, summary, image, healthScore, steps, diets }) => (
+            ({ id, title, summary, image, healthScore, steps, diets, Diets, created }) => (
+              
               <Card
                 key={id}
                 id={id}
@@ -64,6 +65,7 @@ const Cards = () => {
                 healthScore={healthScore}
                 steps={steps}
                 diets={diets}
+                Diets={Diets}
               />
             )
           )}

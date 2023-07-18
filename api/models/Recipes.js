@@ -35,12 +35,11 @@ module.exports = (sequelize) => {
                 validate: {
                     min: 0,
                     max: 100,
-                    
                 },              
             },
             steps:{
-                type: DataTypes.STRING,
-                allowNull: true,
+                type: DataTypes.TEXT,
+                allowNull: false,
             },
             created: { //Para validar si la receta se creó por el cliente o proviene de la API
                 type: DataTypes.BOOLEAN,

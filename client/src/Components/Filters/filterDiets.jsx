@@ -24,7 +24,7 @@ const FilterDiet = () => {
       <select onChange={(event) => handlerDiets(event)} name="filtroDietas" value={selection}
       className="opciones"
       >
-        <option value="ALL"> Todas las recetas </option>
+        <option value="ALL"> Todas las dietas </option>
         {allDiets.map((diets) => (
           <option value={diets.name} key={diets.id}>
             {" "}
