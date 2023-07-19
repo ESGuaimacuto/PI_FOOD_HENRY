@@ -17,7 +17,7 @@ const FilterAlfa = () => {
         onChange={(event)=>handlerAlfavetico(event)}
         name="filtroAlfavetico"
         >
-        <option value="neutro"> Orden Alfavetico </option>
+        <option value="neutro"> Orden Alfabético </option>
         <option value="AZ"> Ordenar A - Z </option>
         <option value="ZA"> Ordenar Z - A </option>    
         </select>

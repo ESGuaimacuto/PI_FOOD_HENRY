@@ -13,7 +13,7 @@ export default function Paginado({
   //   const numRecipes = allRecipes.length
 
   const pagNumber = [];
-  for (let i = 1; (i = Math.round(numRecipes / recipesPerPage)); i++) {
+  for (let i = 1; i <= Math.ceil(numRecipes / recipesPerPage); i++) {
     pagNumber.push(i);
   }
   console.log(pagNumber);
@@ -26,9 +26,9 @@ export default function Paginado({
         </div>
         {pagNumber &&
           pagNumber.map((number) => (
-            <li key={number}>
+            <li className="lista" key={number}>
               {" "}
-              <button onClick={() => paginado(number)}>{number}</button>{" "}
+              <button className="botonPage" onClick={() => paginado(number)}>{number}</button>{" "}
             </li>
           ))}
         <div onClick={pageNext}>

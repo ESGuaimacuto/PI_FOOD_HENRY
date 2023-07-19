@@ -46,3 +46,26 @@
     box-shadow:  rgb(17, 187, 230);
     border: solid  rgb(17, 187, 230);
 }
+
+.botonPage {
+    background-color: rgb(51, 6, 136);
+    color: white;
+    margin: 3px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    width: 30px;
+    height: 25px;
+    box-shadow: 5px 5px 10px black;
+    border: none;
+    border-radius: 8px;
+}
+
+.botonPage:hover {
+    background:  rgb(17, 187, 230);
+    color: black;
+    box-shadow:  rgb(17, 187, 230);
+    border: solid  rgb(17, 187, 230);
+}
+
+.lista {
+    list-style: none;
+}

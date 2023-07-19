@@ -75,6 +75,7 @@ function rootReducer(state = initialState, action) {
               recipes.diets?.includes(action.payload)
             );
       if (filterDiets.length === 0) filterDiets = [];
+      console.log(filterDiets);
       return {
         ...state,
         recipes: filterDiets,

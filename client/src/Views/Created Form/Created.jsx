@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { createdRecipe, getDiets } from "../../Redux/actions/actions";
+import { createdRecipe, getDiets, getRecipes } from "../../Redux/actions/actions";
 import "../Created Form/created.css";
 
 const Created = () => {
@@ -70,6 +70,7 @@ const Created = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch(createdRecipe(input));
+    dispatch(getRecipes())
   };
   console.log(input);
 
@@ -189,7 +190,7 @@ const Created = () => {
               </option>
               {allDiets.map((diet) => {
                 return (
-                  <option value={diet.id} key={diet.id}>
+                  <option className="optionDieta" value={diet.id} key={diet.id}>
                     {diet.name}
                   </option>
                 );
@@ -198,9 +199,9 @@ const Created = () => {
             {input.diets.map((e) => {
               return (
                 <ul>
-                  <li>
+                  <li className="liCreated">
                     <p>{e}</p>
-                    <button onClick={() => handleDelete(e)}>X</button>
+                    <button className="X" onClick={() => handleDelete(e)}>X</button>
                   </li>
                 </ul>
               );

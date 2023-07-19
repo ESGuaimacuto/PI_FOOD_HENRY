@@ -46,8 +46,8 @@ const Cards = () => {
     <div>
       <div>
         <Paginado
-          //recipesPerPage={recipesPerPage}
-          //numRecipes = {numRecipes}
+          recipesPerPage={recipesPerPage}
+          numRecipes = {numRecipes}
           paginado={paginado}
           pageNext={pageNext}
           pagePrev={pagePrev}
@@ -71,8 +71,8 @@ const Cards = () => {
           )}
         </div>
         <Paginado
-          //recipesPerPage={recipesPerPage}
-          //numRecipes = {numRecipes}
+          recipesPerPage={recipesPerPage}
+          numRecipes = {numRecipes}
           paginado={paginado}
           pageNext={pageNext}
           pagePrev={pagePrev}

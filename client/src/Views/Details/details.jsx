@@ -12,7 +12,6 @@ const Details = () => {
   console.log(allDetails);
 
   useEffect(() => {
-    console.log("Entre al use Efec");
     dispatch(getDetails(idRecipes));
   }, [dispatch, idRecipes]);
 
@@ -51,7 +50,7 @@ const Details = () => {
                   <h1 className="tituloDetalle">{title}</h1>
                   <img className="imageDetalle" src={image} alt={title} />
                   <h5>Puntaje de salud: {healthScore}</h5>
-                  <h3>Tipos de Dieta: {Diets[0].name}
+                  <h3>Tipos de Dieta: {Diets.map((name)=>name.name).join(", ")}
                   {console.log(Diets)}
                   </h3>
                   <p className="pasos">
@@ -92,14 +91,25 @@ const Details = () => {
                   </p>
                   <div>
                     <strong>Pasos para la preparación: </strong>
-                    {steps.map((step) => {
+                    {!steps
+                    ? steps = ["No se requieren pasos para la preparación"]
+                    : steps.map((step)=>{
+                      return(
+                        <p className="pasos">
+                          {step.number}. {step.step}
+                        </p>
+                      )
+                    })
+                  }
+                    
+                    {/* {steps.map((step) => {
                       return (
                         <p className="pasos">
                           {" "}
                           {step.number}. {step.step}{" "}
                         </p>
                       );
-                    })}
+                    })} */}
                   </div>
                   <Link to={"/recipes"}>
                     <button className="buttonDetalle">Home</button>

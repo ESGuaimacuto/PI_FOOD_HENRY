@@ -10,6 +10,7 @@ import {
   FILTER_BY_DIET,
   ORDER_BY_TITLE,
   ORDER_BY_HEALTHSCORE,
+  DELETE_RECEPE
 } from "./actionsType";
 
 const LocalHost = "http://localhost:3001";
@@ -131,3 +132,4 @@ export const orderScore = (payload)=>{
     payload
   }
 }
+
