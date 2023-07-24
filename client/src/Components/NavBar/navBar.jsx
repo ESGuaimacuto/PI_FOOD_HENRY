@@ -10,9 +10,9 @@ const NavBar = () => {
       <div className="contenedorTitulo">
         <h3 className="receta">RECETAS SECRETAS</h3>
       </div>
+      <FilterOrigin />
       <FilterAlfa />
       <FilterHealth />
-      <FilterOrigin />
       <FilterDiet />
     </div>
   );

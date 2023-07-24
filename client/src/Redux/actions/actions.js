@@ -10,7 +10,8 @@ import {
   FILTER_BY_DIET,
   ORDER_BY_TITLE,
   ORDER_BY_HEALTHSCORE,
-  DELETE_RECEPE
+  DELETE_RECEPE,
+  SET_FILTER
 } from "./actionsType";
 
 const LocalHost = "http://localhost:3001";
@@ -130,6 +131,16 @@ export const orderScore = (payload)=>{
   return {
     type: ORDER_BY_HEALTHSCORE,
     payload
+  }
+}
+
+export const setFilter = (filterType, value) => {
+  return {
+    type: SET_FILTER,
+    payload:{
+      filterType,
+      value,
+    }
   }
 }
 

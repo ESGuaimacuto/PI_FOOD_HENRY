@@ -54,6 +54,10 @@
 .inputSummary {
   height: 200px;
   width: 400px;
+  justify-content: flex-start;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
 }
 
 .inputScore {

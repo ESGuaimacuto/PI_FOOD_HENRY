@@ -9,3 +9,4 @@ export const FILTER_BY_DIET = "FILTER_BY_DIET";
 export const ORDER_BY_TITLE = "ORDER_BY_TITLE";
 export const ORDER_BY_HEALTHSCORE = "ORDER_BY_HEALTHSCORE";
 export const DELETE_RECEPE = "DELETE_RECEPE"
+export const SET_FILTER = "SET_FILTER"

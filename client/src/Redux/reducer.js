@@ -8,6 +8,8 @@ import {
   FILTER_BY_DIET,
   ORDER_BY_TITLE,
   ORDER_BY_HEALTHSCORE,
+  SET_VIEW_FILTER_AND_ORDER,
+  SET_FILTER
 } from "../Redux/actions/actionsType";
 
 const initialState = {
@@ -15,7 +17,14 @@ const initialState = {
   diets: [],
   details: [],
   respaldoRecipes: [],
+  respaldo: [],
   currentPage: 1,
+  filters: {
+    origin: "ALL",
+    diet:"ALL",
+    orderBy: "neutro",
+    healthScore: "neutro"
+  }
 };
 
 function rootReducer(state = initialState, action) {
@@ -25,6 +34,7 @@ function rootReducer(state = initialState, action) {
         ...state,
         recipes: action.payload,
         respaldoRecipes: action.payload,
+        respaldo: action.payload
       };
 
     case GET_DIETS:
@@ -54,12 +64,25 @@ function rootReducer(state = initialState, action) {
       let filtroOrigen;
       if (action.payload === "ALL") {
         filtroOrigen = state.respaldoRecipes;
-      } else {
+      } 
+      // if(action.payload === "true"){
+      //   if(state.recipes.filter((e) => e.created) === null){
+      //     state.respaldo.filter((e) => e.created)
+      //   }
+      // }
+      // if(action.payload === "false"){
+      //   if(state.recipes.filter((e) => !e.created) === null){
+      //     state.respaldo.filter((e) => !e.created)
+      //   }
+      // }
+
+      else {
         filtroOrigen =
           action.payload === "true"
-            ? state.respaldoRecipes.filter((e) => e.created)
-            : state.respaldoRecipes.filter((e) => !e.created);
+            ? state.recipes.filter((e) => e.created)
+            : state.recipes.filter((e) => !e.created);
       }
+      console.log(state.recipes)
       return {
         ...state,
         recipes: filtroOrigen,
@@ -95,6 +118,8 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         recipes: orden,
+        respaldoRecipes: orden,
+        respaldo: orden
       };
 
     case ORDER_BY_HEALTHSCORE:
@@ -115,6 +140,15 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         recipes: ordenarScore,
+      };
+
+    case SET_FILTER:
+      return {
+        ...state,
+        filters: {
+          ...state.filters,
+          [action.payload.filterType]: action.payload.value
+        }
       };
 
     default:
